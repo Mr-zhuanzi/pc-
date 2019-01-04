@@ -1,5 +1,5 @@
 /*清除默认样式*/
-html,body{height: 100%;/*overflow: hidden;*/}
+html,body{height: 100%;overflow: hidden;}
 html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
 a{text-decoration: none;display: block;}
 li{list-style: none;}
@@ -79,7 +79,12 @@ margin-top: 15px;
 #content-main{
   height:500%;
   width:100%;
-  background: red;
+  background-image:url("../img/b");
+
+  transition: top 1s;
+  position: absolute;
+  left:0;
+  top:0;/*为了第一次有过渡*/
 }
 #content-main li{
   height: 20%;
@@ -89,12 +94,25 @@ margin-top: 15px;
 #content-main li section{
   width: 1100px;
   height: 520px;
-  background: green;
+  /*background: green;*/
   position: absolute;
   top: 50%;
   left:50%;
   margin-top:-260px ;
   margin-left: -550px;
-
-
+}
+#content-main li:nth-child(1){
+  background-image:url("../img/bg1.jpg");
+}
+#content-main li:nth-child(2){
+  background-image:url("../img/bg2.jpg");
+}
+#content-main li:nth-child(3){
+  background-image:url("../img/bg3.jpg");
+}
+#content-main li:nth-child(4){
+  background-image:url("../img/bg4.jpg");
+}
+#content-main li:nth-child(5){
+  background-image:url("../img/bg5.jpg");
 }
