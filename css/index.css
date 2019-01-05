@@ -11,7 +11,7 @@ img{display: block;}
 
 #wrap{
   height: 100%;
-  background: pink;
+  /*background: pink;*/
 }
 #header{
   position: relative;
@@ -20,7 +20,7 @@ img{display: block;}
   height:80px;
   width: 1100px;
   margin: 0 auto;
-  background:palevioletred;
+  /*background:palevioletred;*/
 }
 .log {
   float: left;
@@ -69,7 +69,7 @@ margin-top: 15px;
 }
 #content{
   position: absolute;
-  top: 80px; ;
+  top: 80px;
   left:0;
   right:0;
   bottom:0;
@@ -79,14 +79,14 @@ margin-top: 15px;
 #content-main{
   height:500%;
   width:100%;
-  background-image:url("../img/b");
+
 
   transition: top 1s;
   position: absolute;
   left:0;
   top:0;/*为了第一次有过渡*/
 }
-#content-main li{
+#content-main>li{
   height: 20%;
   position: relative;
 
@@ -94,25 +94,125 @@ margin-top: 15px;
 #content-main li section{
   width: 1100px;
   height: 520px;
-  /*background: green;*/
+  /*background:gold;*/
   position: absolute;
   top: 50%;
   left:50%;
   margin-top:-260px ;
   margin-left: -550px;
 }
-#content-main li:nth-child(1){
+#content-main>li:nth-child(1){
   background-image:url("../img/bg1.jpg");
 }
-#content-main li:nth-child(2){
+#content-main>li:nth-child(2){
   background-image:url("../img/bg2.jpg");
 }
-#content-main li:nth-child(3){
+#content-main>li:nth-child(3){
   background-image:url("../img/bg3.jpg");
 }
-#content-main li:nth-child(4){
+#content-main>li:nth-child(4){
   background-image:url("../img/bg4.jpg");
 }
-#content-main li:nth-child(5){
+#content-main>li:nth-child(5){
   background-image:url("../img/bg5.jpg");
+}
+
+/*第一屏*/
+/*轮播图*/
+.home-carousel{
+  height: 100%;
+  position: relative;
+  transform-style:preserve-3D;
+  perspective:1000px;
+}
+.home-carousel .active{
+  visibility: visible;
+}
+.home-carousel>li{
+  height:520px;
+  width: 1100px;
+  color: white;
+  font-size: 80px;
+  position: absolute;
+  left:0;
+  top:0;
+  text-align: center;
+  line-height: 520px;
+  visibility: hidden;
+  font-weight: bold;
+  letter-spacing:-5px;
+}
+
+.home-carousel>li:nth-child(1){
+  background:#dc6c5f;
+  /*visibility:visible;*/
+}
+.home-carousel>li:nth-child(2){
+  background:#95dc84;
+}
+.home-carousel>li:nth-child(3){
+  background:#64b9d2;
+}
+.home-carousel>li:nth-child(4){
+  background:#000000;
+}
+/*小圆点*/
+.home-point{
+position: absolute;
+  left:50%;
+  bottom:0;
+  transform: translateX(-50%);
+}
+.home-point>li{
+  float: left;
+  height: 20px;
+  width: 20px;
+  background:rgba(255,255,255,0.5);
+  margin: 2px;
+  box-shadow:0 0 4px rgba(25,25,25,0.8) ;
+  border-radius: 50%;
+}
+.home-point .active{
+  background: white;
+}
+
+.home-carousel .left-hide{
+  visibility: hidden;
+  animation: leftHide 2s linear;
+}
+.home-carousel .left-show{
+  visibility: visible;
+  animation: leftShow 2s linear;
+}
+.home-carousel .right-show{
+  visibility: visible;
+  animation: rightShow 2s linear;
+}
+.home-carousel .right-hide{
+  visibility: hidden;
+  animation: rightHide 2s linear;
+}
+
+@keyframes leftHide {
+  0%{visibility: visible}
+  50%{transform: translateY(-40%) rotateX(45deg) scale(.6)  }
+  100%{transform: translateZ(-200px); visibility: hidden}
+}
+
+@keyframes rightShow {
+  0%{visibility: hidden; transform: translateZ(-200px);}
+  50%{transform: translateY(40%) rotateX(-45deg) scale(.6)}
+  100%{visibility: visible}
+}
+
+@keyframes leftShow {
+  0%{visibility: hidden; transform: translateZ(-200px);}
+  50%{transform: translateY(-40%) rotateX(45deg) scale(.6)  )}
+  100%{visibility: visible}
+}
+
+@keyframes rightHide {
+  0%{visibility: visible}
+  50%{transform: translateY(40%) rotateX(-45deg) scale(.6)}
+  100%{transform: translateZ(-200px); visibility: hidden}
 }

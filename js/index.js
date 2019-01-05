@@ -9,8 +9,8 @@ window.addEventListener('DOMContentLoaded',function () {
     var contentHeight = content.offsetHeight;
     var nowIndex = 0;
     //  头部 的完成
-    headerHandle();
-    function headerHandle() {
+    header();
+    function header() {
         // 让小箭头默认第一个li下面
         arrow.style.left = liNodes[0].getBoundingClientRect().left + liNodes[0].offsetWidth / 2
             - arrow.offsetWidth / 2 + 'px';
@@ -95,4 +95,37 @@ window.addEventListener('DOMContentLoaded',function () {
 
 }
 
+    // FIRSTVIEW
+    firstView();
+    function firstView() {
+        var homeCnodes = document.querySelectorAll('.home-carousel li');
+        var homePnodes = document.querySelectorAll('.home-point li');
+        var lastIndex = 0;
+        var nowIndex = 0;
+        // 给每一个小圆点绑定点击事件
+        for(var i = 0;i < homePnodes.length;i++){
+            homePnodes[i].index =i;
+            homePnodes[i].onclick = function(){
+                // 同步index
+                nowIndex = this.index;
+                if(nowIndex === lastIndex) return;
+                if(nowIndex > lastIndex){
+                    // 点击右边 右边增加right-show 左边增加left-hide
+                    homeCnodes[nowIndex].className = 'right-show ';
+                    homeCnodes[lastIndex].className = 'left-hide ';
+                }else{
+                    // 点击左边 左边增加left-show，右边增加right-hide
+                    homeCnodes[nowIndex].className = 'left-show';
+                    homeCnodes[lastIndex].className = 'right-hide';
+                }
+
+                // 小圆点变换
+                homePnodes[lastIndex].className = '';
+                this.className= 'active';
+                lastIndex=nowIndex;
+            }
+        }
+    }
+
+    // 自动轮播
 })
